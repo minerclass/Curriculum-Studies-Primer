@@ -19,6 +19,22 @@ here, in the repository, not in a local file.
 
 ---
 
+## 2026-08-31 - Link back into the research ecosystem
+
+**Problem.** A design-cohesion review across 31 repositories found this repo had **zero**
+outbound links of any kind apart from a Google Fonts stylesheet. `minerclass.github.io`
+lists it, but it linked nowhere, so a reader arriving from the hub reached a dead end.
+
+**Changed.** `index.html` and `styles.css`. Added a footer navigation region linking to
+the dissertation overview, the games hub, the writing hub, and the root ecosystem, plus a
+line placing the primer within the doctoral research. Styled with the page's own
+`--accent-3`, including a `:focus-visible` state.
+
+**Verified.** Tag balance clean; all four destinations return HTTP 200, checked before the
+links were written; links render in the page accent; no page-level horizontal scroll.
+
+---
+
 ## 2026-08-31 - Restore keyboard focus indication and honour prefers-reduced-motion
 
 Found during an accessibility sweep across the dissertation ecosystem.

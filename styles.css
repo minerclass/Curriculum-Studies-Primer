@@ -686,3 +686,26 @@ blockquote::after { bottom: -40px; right: 0; }
     scroll-behavior: auto !important;
   }
 }
+
+/* Ecosystem links. This page had no outbound links at all, so a reader could
+   arrive from the hub and find no way back into the wider work. */
+.ecosystem-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin: 1.25rem 0;
+}
+
+.ecosystem-links a {
+    color: var(--accent-3);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.ecosystem-links a:hover,
+.ecosystem-links a:focus-visible {
+    border-bottom-color: var(--accent-3);
+}
