@@ -19,6 +19,23 @@ here, in the repository, not in a local file.
 
 ---
 
+## 2026-09-01 - Adopt the shared tokens, and repair 13 contrast failures
+
+**Token adoption.** Ground, surfaces, and ink now come from the shared tokens with
+pre-adoption fallbacks; the indigo/pink/teal accents stay local.
+
+**Thirteen pre-existing failures, nearly all from one token.** `--accent-1` (`#6366f1`)
+was used as text on badges, pathway labels, and thinker tags, measuring 4.16 on the ground
+and **3.68** on elevated surfaces. It keeps its border and gradient roles; text now uses
+`--accent-1-text` (`#818cf8`) at 5.51 or better. `--accent-2` got the same treatment.
+
+The primary button's white label measured **3.53** on the indigo gradient; the gradient's
+start was darkened from `#6366f1` to `#4f46e5`, giving 4.60 while keeping the hue ramp.
+
+**Verified.** 13 failures to **zero**; tightest pair 4.60.
+
+---
+
 ## 2026-08-31 - Link back into the research ecosystem
 
 **Problem.** A design-cohesion review across 31 repositories found this repo had **zero**

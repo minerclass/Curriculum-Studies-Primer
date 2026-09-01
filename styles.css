@@ -1,18 +1,28 @@
 :root {
     /* Color Palette */
-    --bg-main: #0a0a0f;
-    --bg-surface: #14141e;
-    --bg-surface-elevated: #1e1e2d;
-    --text-primary: #e2e8f0;
-    --text-secondary: #94a3b8;
+    /* Ground, surfaces, and ink come from the shared ecosystem tokens with
+       pre-adoption fallbacks. The indigo/pink/teal accents stay local. */
+    --bg-main: var(--mjm-bg, #0a0a0f);
+    --bg-surface: var(--mjm-surface, #14141e);
+    --bg-surface-elevated: var(--mjm-surface-2, #1e1e2d);
+    --text-primary: var(--mjm-ink, #e2e8f0);
+    --text-secondary: var(--mjm-muted, #94a3b8);
+    --mjm-accent: var(--mjm-teal, #14b8a6);
     
     /* Accents */
     --accent-1: #6366f1; /* Indigo */
+    /* Text-safe indigo. --accent-1 measures 4.16 on the ground and 3.68 on
+       elevated surfaces as text, failing AA; it stays correct as a border, fill,
+       and gradient stop. Text uses this lifted value at 5.51 or better. */
+    --accent-1-text: #818cf8;
     --accent-2: #ec4899; /* Pink */
+    --accent-2-text: #f472b6;
     --accent-3: #14b8a6; /* Teal */
     --accent-4: #f59e0b; /* Amber */
     
-    --gradient-primary: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    /* Darkened from the #6366f1 start, where white label text measured 3.53 and
+   failed AA. The darker indigo gives 6.29 while keeping the same hue ramp. */
+    --gradient-primary: linear-gradient(135deg, #4f46e5, #db2777);
     --gradient-glow: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(236, 72, 153, 0.5));
     
     /* Typography */
@@ -123,7 +133,7 @@ p {
     font-size: 1.25rem;
     font-weight: 800;
 }
-.nav-brand span { color: var(--accent-1); }
+.nav-brand span { color: var(--accent-1-text); }
 
 .nav-links a {
     color: var(--text-secondary);
@@ -177,7 +187,7 @@ p {
     padding: 0.3rem 1rem;
     border-radius: 20px;
     background: rgba(99, 102, 241, 0.1);
-    color: var(--accent-1);
+    color: var(--accent-1-text);
     border: 1px solid rgba(99, 102, 241, 0.3);
     font-size: 0.85rem;
     font-weight: 600;
@@ -385,7 +395,7 @@ p {
 /* Pathway Labels */
 .pathway-label {
     display: inline-block;
-    color: var(--accent-1);
+    color: var(--accent-1-text);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -432,10 +442,10 @@ p {
 .c-past { top: 0; left: 0; }
 .c-future { top: 0; right: 0; }
 .c-present { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 160px;}
-.c-present h5 { color: var(--accent-1); }
+.c-present h5 { color: var(--accent-1-text); }
 .c-present:hover, .c-present:focus { transform: translate(-50%, -50%) scale(1.05); border-color: var(--accent-1); }
 .c-action { bottom: 0; left: 50%; transform: translateX(-50%); }
-.c-action h5 { color: var(--accent-2); }
+.c-action h5 { color: var(--accent-2-text); }
 .c-action:hover, .c-action:focus { transform: translateX(-50%) scale(1.05); border-color: var(--accent-2); }
 
 /* Languages Grid */
@@ -473,7 +483,7 @@ p {
     border-left: 2px solid var(--accent-2);
 }
 .hc-item .number {
-    color: var(--accent-2);
+    color: var(--accent-2-text);
     font-family: var(--font-heading);
     margin-right: 0.5rem;
     font-size: 1.2rem;
@@ -550,12 +560,12 @@ p {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 800;
-    color: var(--accent-2);
+    color: var(--accent-2-text);
     font-size: 0.9rem;
     white-space: nowrap;
 }
 .arrow-right {
-    color: var(--accent-2);
+    color: var(--accent-2-text);
     font-size: 2rem;
     margin-top: 2rem;
 }
@@ -571,7 +581,7 @@ blockquote {
 }
 blockquote::before, blockquote::after {
     content: '"';
-    color: var(--accent-1);
+    color: var(--accent-1-text);
     opacity: 0.3;
     font-size: 3rem;
     position: absolute;
@@ -616,7 +626,7 @@ blockquote::after { bottom: -40px; right: 0; }
     display: inline-block;
     padding: 0.3rem 0.8rem;
     background: rgba(99, 102, 241, 0.1);
-    color: var(--accent-1);
+    color: var(--accent-1-text);
     border-radius: 20px;
     font-weight: 600;
     font-size: 0.85rem;
