@@ -657,3 +657,32 @@ blockquote::after { bottom: -40px; right: 0; }
     .conceptual-map { display: none; /* Simplify on mobile or create list view */ }
     .nav-links { display: none; }
 }
+
+/* Keyboard focus indication. .c-node and .interactive-table rows set
+   outline: none on :focus and leaned on their hover styling, which is not a
+   reliable focus indicator on its own. These rules restore a visible ring for
+   keyboard focus only, so mouse interaction is unchanged. They sit after the
+   outline: none declarations and match their specificity, so they win. */
+:focus-visible {
+  outline: 2px solid var(--accent-3);
+  outline-offset: 3px;
+}
+
+.c-node:focus-visible,
+.interactive-table tbody tr:focus-visible {
+  outline: 2px solid var(--accent-3);
+  outline-offset: 3px;
+}
+
+/* Honour a reduced-motion preference. This page animates and the preference was
+   previously ignored, so motion-sensitive visitors got the full effect. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
